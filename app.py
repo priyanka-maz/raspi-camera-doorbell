@@ -34,7 +34,6 @@ for key, value in data_dict.items():
 print(os.path.dirname(__file__))
 fps = 30.0
 
-camera = cv2.VideoCapture(0)
 
 def cctv_capture_frame():
     date_time  = datetime.now().strftime("%Y_%m_%d-%I_%M_%S_%p")
@@ -92,13 +91,21 @@ def cctv_record():
 
 
 def video_feed():
-    #camera = cv2.VideoCapture(0)
+    global camera, status, frame
+    
+    try:
+        camera.release()
+    except:
+        print("Camera initilized")
+    finally:
+        camera = cv2.VideoCapture(0)
+
     global name 
-    name= "-"
     process_this_frame = 0
 
     while True:
         # get camera frames
+
         status, frame = camera.read()
         frame = cv2.flip(frame, 1)
       
@@ -108,6 +115,7 @@ def video_feed():
         else:
             # Only process every other frame of video to save time
             if process_this_frame == 0:
+                name= "-"
                 # Resize frame of video to 1/4 size for faster face recognition processing
                 small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
                 # Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
@@ -169,11 +177,13 @@ def video_feed():
 # For template
 @app.route('/')
 def welcome():
+    
     return render_template('index.html')
 
 # For video feed
 @app.route('/video')
 def video():
+    
     return Response(video_feed(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 # For cctv view
