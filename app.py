@@ -82,9 +82,6 @@ def cctv_record():
        
         result.write(frame)
        
-       
-
-        #result.release()
      
 # Create a thread for the infinite_loop function
 

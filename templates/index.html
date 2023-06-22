@@ -33,12 +33,14 @@
             <img class="camera-bg" id="bg" src="{{ url_for('video') }}">
         </div>
         <p id="name"></p>
-        <div class="text-center mt-3">
-            <button id="store-name" class="btn btn-primary">Store Name</button>
-        </div>
-        <div id="name-input" class="text-center mt-3" style="display: none;">
-            <input type="text" id="name" placeholder="Enter your name">
-            <button id="submit-name" class="btn btn-primary">Submit</button>
+        <div id="store">
+            <div class="text-center mt-3">
+                <button id="store-name" class="btn btn-primary">Store Name</button>
+            </div>
+            <div id="name-input" class="text-center mt-3" style="display: none;">
+                <input type="text" id="name" placeholder="Enter your name">
+                <button id="submit-name" class="btn btn-primary">Submit</button>
+            </div>
         </div>
     </div>
     <div class="filler"></div>
@@ -100,6 +102,7 @@
         function getName()
         {
             var name = document.getElementById('name');
+            var store = document.getElementById('store');
             var http = new XMLHttpRequest();
              http.open("POST", "/write_name", true);
              http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -109,6 +112,11 @@
                  if (http.readyState == XMLHttpRequest.DONE) {
                      console.log(http.response);
                     name.innerHTML = http.response;
+
+                    if(http.response ==='Unknown')
+                        store.style.display = 'block';
+                    else
+                        store.style.display = 'none';
 
                  }
              }

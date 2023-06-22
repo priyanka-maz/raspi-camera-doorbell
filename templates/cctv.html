@@ -27,23 +27,21 @@
         <div id="header"></div>
         <div class="header-spacing"></div>
         <div class="container-fluid">
-            <div class="row">
-                <div class="col">
+            
                     <div class="cctv-container">
                         <img id="bg" src="{{ url_for('cctv_view') }}">
                     </div>
-                </div>
-                <div class="col-3">
-                    <button id="Record" type="button" class="rec" onclick="RecordButton()">
-                        <i class="fa-regular fa-circle-dot"></i>
-                        Record
-                    </button>
-
-                    <button id="Capture" type="button" class="rec" onclick="CaptureButton()">
-                        Capture
-                    </button>
-                </div>
-            </div>
+                    <div class="button-container text-center d-flex align-content-center">
+                        <button id="Record" type="button" class="rec" onclick="RecordButton()">
+                            <i class="fa-regular fa-circle-dot"></i>
+                            Record
+                        </button>
+                        <button id="Capture" type="button" class="rec" onclick="CaptureButton()">
+                            <i class="fa-solid fa-camera"></i>
+                            Capture
+                        </button>
+                    </div>
+            
         </div>
 
     </body>

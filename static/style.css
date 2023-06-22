@@ -18,6 +18,16 @@ body {
     
 }
 
+#name{
+    text-align: center;
+    font-size: 28px;
+    opacity: 80%;
+}
+
+#store{
+    display: none;
+}
+
 .navbar{
     background-color: white;
 }
@@ -107,6 +117,7 @@ box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
 }
 
 .rec{
+    margin:20px;
     width: fit-content;
     border-radius: 40px;
     align-self: center;
@@ -137,9 +148,23 @@ box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
     padding-right: 10px;
 }
 
+.fa-camera{
+    
+    padding-right: 10px;
+}
+
+
 .fa-arrow-rotate-right{
     
     padding-right: 10px;
+}
+
+.button-container{
+    position: relative;
+    display: inline;
+    text-align: center;
+    margin:0 auto;
+
 }
 
 .about-raspi-cam{
