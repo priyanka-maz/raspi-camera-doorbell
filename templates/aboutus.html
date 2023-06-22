@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://kit.fontawesome.com/13deb536c6.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        
+        <title>About</title>
+
+        <script>
+            $(function () {
+                $("#header").load("/header");
+                $("#footer").load("footer.html");
+            });	
+            
+        </script>
+    </head>
+
+    <body>
+        <div id="header"></div>
+        <div class="header-spacing"></div>
+        <div class="container-fluid">
+
+        <div class="about-raspi-cam">
+            <div class="about-text align-items-center justify-content-center" style="display:block">
+                
+                <h1>About Raspi-Cam</h1>
+                <p>
+                Raspi-Cam is a door camera with face detection and recognition capabilities. It also has the ability to stream, record and capture still images from the live feed of the camera.
+                    The project is made on Raspberry Pi
+                </p>
+        </div>
+
+        <div class="about-working">
+            <div class="about-text align-items-center justify-content-center">
+                <h1>How it Works?</h1>
+                <br>
+                <p>Raspi-Cam uses openCV and face_recognition for face detection, face recognition, video recording and image capturing.
+                    It uses Python Flask for backend. The frontend is made using HTML, CSS and Javascript.
+
+                </p>
+        </div>
+
+        </div>
+
+
+        </div>
+    </body>
+</html>

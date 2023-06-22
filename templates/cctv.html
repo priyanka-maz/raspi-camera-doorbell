@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://kit.fontawesome.com/13deb536c6.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        
+        <title>CCTV</title>
+
+        <script>
+            $(function () {
+                $("#header").load("/header");
+                $("#footer").load("footer.html");
+            });	
+            
+        </script>
+    </head>
+
+    <body>
+        <div id="header"></div>
+        <div class="header-spacing"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div class="cctv-container">
+                        <img id="bg" src="{{ url_for('cctv_view') }}">
+                    </div>
+                </div>
+                <div class="col-3">
+                    <button id="Record" type="button" class="rec" onclick="RecordButton()">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        Record
+                    </button>
+
+                    <button id="Capture" type="button" class="rec" onclick="CaptureButton()">
+                        Capture
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+    <script>
+var record = false;
+
+
+function RecordButton(){
+    var recordButton = document.getElementById('Record');
+    if(record == false)
+    {
+        record = true;
+        recordButton.innerHTML = '<i class="fa-regular fa-circle-dot fa-fade"></i>Recording';
+        console.log(record);
+        var formData = new FormData();
+        formData.append('status', 'true');
+
+        var http = new XMLHttpRequest();
+        http.open("POST", "/cctv", true);
+        http.send(formData);
+    }
+    else
+    {
+        record = false;
+        recordButton.innerHTML = '<i class="fa-regular fa-circle-dot"></i>Record';
+        console.log(record);
+
+        var formData = new FormData();
+        formData.append('status', 'false');
+
+        var http = new XMLHttpRequest();
+        http.open("POST", "/cctv", true);
+        http.send(formData);
+    }
+}
+
+
+function CaptureButton(){
+  
+    var http = new XMLHttpRequest();
+    http.open("POST", "/cctv_capture", true);
+    http.send("hi");
+    
+}
+    </script>
+</html>

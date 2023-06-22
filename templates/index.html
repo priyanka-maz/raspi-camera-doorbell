@@ -8,37 +8,31 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-        .camera-container {
-            width: 600px;
-            height: auto;
-            margin: auto;
-            margin-top: 50px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        }
+    <title>raspicam</title>
 
-        img {
-            display: block;
-            margin: auto;
-            max-width: 100%;
-            max-height: 100%;
-            border-radius: 10px;
-        }
-    </style>
+    <script>
+		$(function () {
+			$("#header").load("/header");
+			$("#footer").load("footer.html");
+		});	
+		
+	</script>
+
 </head>
 
 <body>
 
+    <div id="header"></div>
+    <div class="header-spacing"></div>
+
     <div>
+        
         <div class="camera-container">
             <img class="camera-bg" id="bg" src="{{ url_for('video') }}">
         </div>
+        <p id="name"></p>
         <div class="text-center mt-3">
             <button id="store-name" class="btn btn-primary">Store Name</button>
         </div>
@@ -47,6 +41,7 @@
             <button id="submit-name" class="btn btn-primary">Submit</button>
         </div>
     </div>
+    <div class="filler"></div>
 
 </body>
 <script type="text/javascript">
@@ -97,6 +92,29 @@
             nameInputDiv.style.display = 'block';
         });
     });
+
+   
+
+
+        setInterval(getName, 500)
+        function getName()
+        {
+            var name = document.getElementById('name');
+            var http = new XMLHttpRequest();
+             http.open("POST", "/write_name", true);
+             http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+             http.send("yo");
+ 
+             http.onreadystatechange = function() {
+                 if (http.readyState == XMLHttpRequest.DONE) {
+                     console.log(http.response);
+                    name.innerHTML = http.response;
+
+                 }
+             }
+        }
+
+
 </script>
 </body>
 
