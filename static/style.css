@@ -18,7 +18,7 @@ body {
     
 }
 
-#name{
+#write_name{
     text-align: center;
     font-size: 28px;
     opacity: 80%;
@@ -99,7 +99,7 @@ box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
 
 
 .cctv-container {
-    max-width: 800px;
+    max-width: 750px;
     margin:auto;
     margin-top: 0px;
     padding: 10px;
@@ -117,17 +117,16 @@ box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
 }
 
 .rec{
-    margin:20px;
+    margin:10px;
     width: fit-content;
     border-radius: 40px;
-    align-self: center;
-    padding: 10px 25px 10px 25px;
+    padding: 10px 25px ;
     background-color: rgb(255, 236, 236);
     color: red;
     border: 0px solid rgb(255, 0, 0);
     box-shadow: 5px 5px 0px rgb(255, 0, 0);
     transition: 0.3s;
-    font-size: 1.3rem;
+
     
 }
 
@@ -143,14 +142,41 @@ box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
     background-color: rgb(255, 255, 255);
 }
 
+
+.capture{
+    margin:10px;
+    width: fit-content;
+    border-radius: 40px;
+    padding: 10px 25px ;
+    background-color: rgb(236, 236, 236);
+    color: rgb(43, 43, 43);
+    border: 0px solid rgb(255, 0, 0);
+    box-shadow: 5px 5px 0px rgb(0, 0, 0);
+    transition: 0.3s;
+
+    
+}
+
+.capture:hover{
+    box-shadow: 3px 3px 0px 0px rgb(0, 0, 0);
+    transition: 0.3s;
+    background-color: rgb(255, 255, 255);
+}
+
+.capture:active{
+    box-shadow: 0px 0px 0px 2px rgb(0, 0, 0);
+    transition: 0.3s;
+    background-color: rgb(255, 255, 255);
+}
+
 .fa-circle-dot{
     
-    padding-right: 10px;
+    padding-right: 5px;
 }
 
 .fa-camera{
     
-    padding-right: 10px;
+    padding-right: 5px;
 }
 
 
@@ -160,11 +186,11 @@ box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
 }
 
 .button-container{
+    width: fit-content;
     position: relative;
-    display: inline;
     text-align: center;
     margin:0 auto;
-
+    align-content: center;
 }
 
 .about-raspi-cam{

@@ -92,29 +92,28 @@ def cctv_record():
 
 
 def video_feed():
-    camera = cv2.VideoCapture(0)
-
+    #camera = cv2.VideoCapture(0)
+    global name 
+    name= "-"
     process_this_frame = 0
 
     while True:
         # get camera frames
         status, frame = camera.read()
         frame = cv2.flip(frame, 1)
-        global name 
-        name= "-"
+      
 
         if not status:
             break
         else:
-
+            # Only process every other frame of video to save time
             if process_this_frame == 0:
                 # Resize frame of video to 1/4 size for faster face recognition processing
                 small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
                 # Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
                 rgb_small_frame = cv2.cvtColor(small_frame, cv2.COLOR_BGR2RGB)
 
-                # Only process every other frame of video to save time
-
+                
                 # Find all the faces and face encodings in the current frame of video
                 face_locations = face_recognition.face_locations(rgb_small_frame, model="hog")
                 face_encodings = face_recognition.face_encodings(rgb_small_frame, known_face_locations=face_locations, model="small")
@@ -134,7 +133,7 @@ def video_feed():
                     elif matches[best_match_index]:
                         name = known_face_names[best_match_index]
                         #print(name, " " , np.min(face_distances))
-
+                    print(face_distances[best_match_index])
                     face_names.append(name)
                     
                     write_name()
@@ -225,33 +224,27 @@ def write_name():
 
 @app.route('/store_face_encoding', methods=['POST'])
 def store_face_encoding():
-    name = request.form.get('name')
-    image_data = request.form.get('image_data')
-
+    form_name = request.form.get('name')
+    status, frame = camera.read()
+    frame = cv2.flip(frame, 1)
+    print(form_name)
     try:
-        # Remove the "data:image/jpeg;base64," prefix
-        image_data = image_data.split(",")[1]
-        image = PIL.Image.open(io.BytesIO(base64.b64decode(image_data)))
+        filename1 = os.path.join(os.path.dirname(__file__), 'static/contacts/' + form_name + '.png')
+        cv2.imwrite(filename1,frame)
     except Exception as e:
         print("Error decoding image data:", e)
         return "Error decoding image data"
 
-    # Convert PIL Image to numpy array
-    np_image = np.array(image)
-
-    # Convert color format from RGB to BGR
-    frame = cv2.cvtColor(np_image, cv2.COLOR_RGB2BGR)
-
     # Detect face and get face encoding
-    face_locations = face_recognition.face_locations(frame)
-    face_encodings = face_recognition.face_encodings(frame, face_locations)
-
-    if len(face_encodings) > 0 and name is not None:
+    face_encodings = face_recognition.face_encodings(frame)
+    
+    if len(face_encodings)>0 and form_name is not None:
         # Assuming only one face is detected
         face_encoding = face_encodings[0]
-        data_dict[name] = face_encoding
+        data_dict[form_name] = face_encoding
         known_face_encodings.append(face_encoding)
-        known_face_names.append(name)
+        known_face_names.append(form_name)
+        print(known_face_names)
         for key, value in data_dict.items():
             data_dict[key] = value.tolist()
         with open("data.json", "w") as file:
