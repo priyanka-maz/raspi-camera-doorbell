@@ -1,283 +1,636 @@
 @import url('https://fonts.cdnfonts.com/css/google-sans');
+
 @import url('https://fonts.cdnfonts.com/css/poppins');
+
 @import url('https://fonts.cdnfonts.com/css/raleway-5');
 
 
 
 
+
+
+
+
+
     @font-face {
+
         font-family: Comfortaa;
+
         src: url('https://fonts.googleapis.com/css?family=Comfortaa');
+
     }
 
 
 
+
+
+
+
 body {
+
     margin: 0;
+
     font-family: 'Product Sans';
+
     
+
 }
+
+
 
 #write_name{
+
     text-align: center;
+
     font-size: 28px;
+
     opacity: 80%;
+
 }
+
+
 
 #store{
+
     display: none;
+
 }
+
+
 
 .navbar{
+
     background-color: white;
+
 }
+
+
 
 .navbar-brand{
+
     
+
     font-size: 28px!important;
+
     color: var(--text-color)!important;
+
 }
+
+
 
 .navbar-brand>img{
+
     position: absolute;
+
     margin-left: 1px;
+
     margin-top: -4px;
+
     box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.2);
+
     border-radius: 30px;
+
 }
+
+
 
 .navbar-brand>span{
+
     margin-left: 60px;
+
     margin-top: 20px;
+
     opacity: 80%;
+
 }
+
+
 
 .offcanvas-title{
+
     margin-left: -30px!important;
+
 }
+
+
 
 #header1.active{
+
 box-shadow: 0 0 30px rgba(0, 0, 0, 0.2); 
+
 }
+
+
 
 .header-spacing{
+
     height:68px;
+
 }
+
+
 
 .offcanvas-body{
+
     margin-top: 50px;
+
 }
 
+
+
 .offcanvas-body>ul>li>a{
+
     font-size: 30px;
+
     margin-bottom: 20px;
+
 }
+
+
+
 
 
 .filler{
+
     height:1000px;
+
 }
+
+
+
 
 
 .camera-container {
+
     max-width: 900px;
+
     margin:auto;
+
     margin-top: 50px;
+
     padding: 10px;
+
     border-radius: 10px;
+
 }
+
+
 
 .camera-container>img {
+
     display: block;
+
     margin: auto;
+
     max-width: 100%;
+
     max-height: 100%;
+
     border-radius: 10px;
+
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 
+
+
 }
+
+
+
 
 
 .cctv-container {
+
     max-width: 750px;
+
     margin:auto;
+
     margin-top: 0px;
+
     padding: 10px;
+
     border-radius: 10px;
+
 }
+
+
 
 .cctv-container>img {
+
     display: block;
+
     margin: auto;
+
     width: 100%;
+
     height: 100%;
+
     border-radius: 10px;
+
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 
+
+
 }
+
+
 
 .rec{
+
     margin:10px;
+
     width: fit-content;
+
     border-radius: 40px;
+
     padding: 10px 25px ;
+
     background-color: rgb(255, 236, 236);
+
     color: red;
+
     border: 0px solid rgb(255, 0, 0);
+
     box-shadow: 5px 5px 0px rgb(255, 0, 0);
+
     transition: 0.3s;
+
+
 
     
+
 }
+
+
 
 .rec:hover{
+
     box-shadow: 3px 3px 0px 0px rgb(255, 0, 0);
+
     transition: 0.3s;
+
     background-color: rgb(255, 242, 242);
+
 }
 
+
+
 .rec:active{
+
     box-shadow: 0px 0px 0px 2px rgb(255, 0, 0);
+
     transition: 0.3s;
+
     background-color: rgb(255, 255, 255);
+
 }
+
+
+
 
 
 .capture{
+
     margin:10px;
+
     width: fit-content;
+
     border-radius: 40px;
+
     padding: 10px 25px ;
+
     background-color: rgb(236, 236, 236);
+
     color: rgb(43, 43, 43);
+
     border: 0px solid rgb(255, 0, 0);
+
     box-shadow: 5px 5px 0px rgb(0, 0, 0);
+
     transition: 0.3s;
 
+
+
     
+
 }
+
+
 
 .capture:hover{
+
     box-shadow: 3px 3px 0px 0px rgb(0, 0, 0);
+
     transition: 0.3s;
+
     background-color: rgb(255, 255, 255);
+
 }
+
+
 
 .capture:active{
+
     box-shadow: 0px 0px 0px 2px rgb(0, 0, 0);
+
     transition: 0.3s;
+
     background-color: rgb(255, 255, 255);
+
 }
+
+
 
 .fa-circle-dot{
+
     
+
     padding-right: 5px;
+
 }
 
+
+
 .fa-camera{
+
     
+
     padding-right: 5px;
+
 }
+
+
+
 
 
 .fa-arrow-rotate-right{
+
     
+
     padding-right: 10px;
+
 }
+
+
 
 .button-container{
+
     width: fit-content;
+
     position: relative;
+
     text-align: center;
+
     margin:0 auto;
+
     align-content: center;
+
 }
+
+
 
 .about-raspi-cam{
+
     position: absolute;
+
     left: 0;
+
     width:100%;
+
     background-color: rgb(23, 147, 255);
+
     text-align: center;
+
     padding: 30px;
+
     height:600px;
+
     color: rgb(224, 241, 255);
+
 }
+
+
 
 .about-text>h1{
+
     padding-top:30px;
+
     font-size: 50px;
+
 }
+
+
 
 .about-text{
+
     height: 100%;
+
     position: relative;
+
     top:20%;
+
     vertical-align: middle;
+
     align-items: center;
+
     margin: 0 auto;
+
 }
 
+
+
 .about-text>p{
+
     padding-top: 30px;
+
     padding-bottom: 40px;
+
     max-width: 900px;
+
     margin: 0 auto;
+
     font-size: large;
+
 }
+
+
+
 
 
 .about-working{
+
     position: absolute;
+
     left: 0;
+
     width:100%;
-    background-color: rgb(56, 255, 129);
+
+    background-color: rgb(136, 255, 179);
+
     text-align: center;
+
     padding: 30px;
+
     height:600px;
+
     color:rgb(0, 80, 29);
+
 }
+
+
+
+.about-dev{
+
+    position: relative;
+
+    width:103%;
+
+    background-color: #ffd1dc;
+
+    top: 111%;
+
+    text-align: center;
+
+    padding: 30px;
+
+    height:auto;
+
+    color:rgb(0, 80, 29);
+
+}
+
+
+
+.about-dev h1{
+
+    font-size: 40px;
+
+}
+
+
+
+.about-dev .col-6{
+
+    padding: 15px;
+
+}
+
+
+
+.image-container {
+
+  width: 60%;
+
+  border-radius: 100px;
+
+  overflow: hidden;
+
+  text-align: center;
+
+  margin-left: 120px;
+
+  margin-right: 120px;
+
+}
+
+
+
+.image-container img {
+
+  width: 100%;
+
+  height: auto;
+
+  display: block;
+
+}
+
+
+
+
 
 .heading{
+
     margin: 50px 30px 30px 30px;
+
     font-weight: bold;
+
     opacity: 80%;
+
 }
+
+
 
 .person{
+
     width: fit-content;
+
     margin: 0 auto;
+
     border-radius: 20px;
+
     padding:10px;
+
     box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+
     max-width:700px;
+
     margin-top: 20px;
+
 }
+
+
 
 .person-img{
+
     border-radius: 10px;
+
     aspect-ratio: 1.333;
+
 }
+
+
 
 .person-name{
+
     height: 100%;
+
     
+
 }
+
+
 
 .galary{
+
     margin-top: 20px;
+
     max-width:900px;
+
     margin: 0 auto;
+
     text-align: center;
+
     width: fit-content;
+
 }
 
+
+
 .captures{
+
     width:400px;
+
     margin-top: 25px;
+
     margin-left: 10px;
+
     margin-right: 10px;
+
     border-radius: 20px;
+
     padding: 2px;
+
     border: 2px solid rgba(0, 0, 0, 0.334);
+
 }
+

@@ -11,6 +11,8 @@ import json
 import signal
 import threading
 from datetime import datetime
+import pyttsx3
+import pygame
 
 app = Flask(__name__)
 
@@ -291,6 +293,32 @@ def recordings():
     print(image_names)
     return render_template('recordings.html', image_names=image_names)
 
+'''
+@app.route('/tts', methods=['GET'])
+def tts():
+    text = "Hello, how are you today?"
+
+    # Convert text to speech
+    engine = pyttsx3.init()
+    engine.save_to_file(text, 'templates/output.mp3')  # Save TTS audio to a file
+    engine.runAndWait()
+
+    # Return the file path or any other response as needed
+    return 'output.mp3'
+'''
+
+@app.route('/play_audio', methods=['GET'])
+def play_audio():
+    audio_file = 'static/output.mp3'
+    # Initialize Pygame mixer
+    pygame.mixer.init()
+
+    # Load the audio file
+    pygame.mixer.music.load(audio_file)
+
+    # Play the audio file
+    pygame.mixer.music.play()
+    return 'Audio is playing'
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port='5050', debug=True)

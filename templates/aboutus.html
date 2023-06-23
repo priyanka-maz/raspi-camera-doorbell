@@ -1,56 +1,156 @@
 <!DOCTYPE html>
+
 <html>
 
+
+
     <head>
+
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <script src="https://kit.fontawesome.com/13deb536c6.js" crossorigin="anonymous"></script>
 
+
+
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
         
+
         <title>About</title>
 
+
+
         <script>
+
             $(function () {
+
                 $("#header").load("/header");
+
                 $("#footer").load("footer.html");
+
             });	
+
             
+
         </script>
+
     </head>
 
+
+
     <body>
+
         <div id="header"></div>
+
         <div class="header-spacing"></div>
+
         <div class="container-fluid">
 
+
+
         <div class="about-raspi-cam">
+
             <div class="about-text align-items-center justify-content-center" style="display:block">
+
                 
+
                 <h1>About Raspi-Cam</h1>
+
                 <p>
+
                 Raspi-Cam is a door camera with face detection and recognition capabilities. It also has the ability to stream, record and capture still images from the live feed of the camera.
-                    The project is made on Raspberry Pi
+
+                    This project was made on Raspberry Pi. Users may check the cctv feed of their house, from any network whether it be local network or outside the local network.
+
                 </p>
+
         </div>
+
+
 
         <div class="about-working">
+
             <div class="about-text align-items-center justify-content-center">
+
                 <h1>How it Works?</h1>
+
                 <br>
-                <p>Raspi-Cam uses openCV and face_recognition for face detection, face recognition, video recording and image capturing.
-                    It uses Python Flask for backend. The frontend is made using HTML, CSS and Javascript.
+
+                <p>Raspi-Cam uses OpenCV and face_recognition for face detection, face recognition, video recording and image capturing.
+
+                    It uses Python Flask for backend. The frontend is made using HTML(jinja templates), CSS and Javascript. It uses ngrok to host the website and make it available for users to check the cctv feed remotely.
 
                 </p>
-        </div>
+
+           </div>
 
         </div>
 
+        <div class="row no-gutters about-dev">
+
+        <div class="col-6">
+
+                <div class="about-dev1">
+
+                    <div class="about-text align-items-center justify-content-center">
+
+                        <h1>Priyanka Mazumdar</h1>
+
+                        <br>
+
+                        <div class="image-container">
+
+                                <img src="../static/priyanka.jpg"> 
+
+                        </div>
+
+                        <p>Priyanka Mazumdar is one of our core developers who worked on the face-recognition storage formats and registration of new people to the doorbell cam. </p>
+
+                   </div>
+
+                </div>
 
         </div>
+
+        <div class="col-6">
+
+                <div class="about-dev1">
+
+                    <div class="about-text align-items-center justify-content-center">
+
+                        <h1>Anindya Biswas</h1>
+
+                        <br>
+
+                        <div class="image-container">
+
+                                <img src="../static/anindya.jpg"> 
+
+                        </div>
+
+                        <p>Anindya Biswas is one of our core developers who worked on the face recognition technology we use as well as the user interface to make it easily accessible to the users.</p>
+
+                   </div>
+
+                </div>
+
+        </div>
+
+        </div>
+
+    </div>
+
     </body>
+
 </html>
+

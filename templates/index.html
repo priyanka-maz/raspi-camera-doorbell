@@ -32,6 +32,9 @@
         <div class="camera-container">
             <img class="camera-bg" id="bg" src="{{ url_for('video') }}">
         </div>
+        <div class="text-center mt-3">
+            <button id="playButton"class="btn btn-success">Say Hello!</button>
+        </div>
         <p id="write_name"></p>
         <div id="store">
             <div class="text-center mt-3">
@@ -97,8 +100,21 @@
         });
     });
 
-   
+    document.getElementById("playButton").addEventListener("click", function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/play_audio', true);
+        xhr.onload = function() {
 
+            if (xhr.status === 200) {
+                console.log(xhr.responseText);
+            }
+        };
+
+        xhr.onerror = function() {
+            console.error('Error occurred while making the request.');
+        };
+        xhr.send();
+        });
 
         setInterval(getName, 500)
         function getName()
