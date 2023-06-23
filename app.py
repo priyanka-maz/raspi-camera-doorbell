@@ -60,7 +60,7 @@ def cctv_feed():
 
 def cctv_record():
     date_time  = datetime.now().strftime("%Y_%m_%d-%I_%M_%S_%p")
-    filename = os.path.join(os.path.dirname(__file__), 'static/video/video_' + date_time + '.avi')
+    filename = os.path.join(os.path.dirname(__file__), 'static/video/video_' + date_time + '.mp4')
     
 
    
@@ -68,7 +68,7 @@ def cctv_record():
     frame_height = int(camera.get(4))
     
     size = (frame_width, frame_height)
-    result = cv2.VideoWriter(filename, cv2.VideoWriter_fourcc(*'MJPG'), fps, size)
+    result = cv2.VideoWriter(filename, cv2.VideoWriter_fourcc(*'MP4V'), fps, size)
 
     while True:
         # get camera frames
@@ -276,6 +276,18 @@ def contacts():
     image_names = os.listdir(os.path.join(os.path.dirname(__file__), 'static/contacts'))
     print(image_names)
     return render_template('contact.html', image_names=image_names)
+
+@app.route('/captures')
+def captures():
+    image_names = os.listdir(os.path.join(os.path.dirname(__file__), 'static/captures'))
+    print(image_names)
+    return render_template('captures.html', image_names=image_names)
+
+@app.route('/recordings')
+def recordings():
+    image_names = os.listdir(os.path.join(os.path.dirname(__file__), 'static/video'))
+    print(image_names)
+    return render_template('recordings.html', image_names=image_names)
 
 
 if __name__ == '__main__':

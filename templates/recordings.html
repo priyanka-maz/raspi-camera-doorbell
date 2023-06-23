@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://kit.fontawesome.com/13deb536c6.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        
+        <title>Recordings</title>
+
+        <script>
+            $(function () {
+                $("#header").load("/header");
+                $("#footer").load("footer.html");
+            });	
+            
+        </script>
+    </head>
+
+    <body>
+        <div id="header"></div>
+        <div class="header-spacing"></div>
+        <div class="container-fluid">
+        <h1 class="heading">Your Recordings</h1>
+        <div class="galary">
+
+            {% for name in image_names %}
+                
+                <video width="320" height="240" controls>
+                    <source src="{{ url_for('static', filename='video/' + name) }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+            {% endfor %}
+            <video width="320" height="240" controls="">
+                <source src="/static/video/video_2023_06_23-08_43_15_PM.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <video width="320" height="240" controls="">
+                <source src="/static/video/2023-01-04%2022-59-40.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+        </div>
+
+
+
+            
+        </div>
+
+    </body>
+    </html>
