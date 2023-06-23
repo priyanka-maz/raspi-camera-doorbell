@@ -62,7 +62,6 @@ def cctv_record():
     date_time  = datetime.now().strftime("%Y_%m_%d-%I_%M_%S_%p")
     filename = os.path.join(os.path.dirname(__file__), 'static/video/video_' + date_time + '.avi')
     
-    print(os.path.dirname(__file__))
 
    
     frame_width = int(camera.get(3))
@@ -273,6 +272,12 @@ def header():
 @app.route('/about')
 def about():
     return render_template('aboutus.html')
+
+@app.route('/contacts')
+def contacts():
+    image_names = os.listdir(os.path.join(os.path.dirname(__file__), 'static/contacts'))
+    print(image_names)
+    return render_template('contact.html', image_names=image_names)
 
 
 if __name__ == '__main__':
