@@ -237,3 +237,29 @@ box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
     height:600px;
     color:rgb(0, 80, 29);
 }
+
+.heading{
+    margin: 50px 30px 30px 30px;
+    font-weight: bold;
+    opacity: 80%;
+}
+
+.person{
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 20px;
+    padding:10px;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+    max-width:700px;
+    margin-top: 20px;
+}
+
+.person-img{
+    border-radius: 10px;
+    aspect-ratio: 1.333;
+}
+
+.person-name{
+    height: 100%;
+    
+}

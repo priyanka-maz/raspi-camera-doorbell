@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://kit.fontawesome.com/13deb536c6.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        
+        <title>CCTV</title>
+
+        <script>
+            $(function () {
+                $("#header").load("/header");
+                $("#footer").load("footer.html");
+            });	
+            
+        </script>
+    </head>
+
+    <body>
+        <div id="header"></div>
+        <div class="header-spacing"></div>
+        <div class="container-fluid">
+        <h1 class="heading">Your Contacts</h1>
+            
+            {% for name in image_names %}
+            <div class="person">
+                <div class="row">
+                    <div class="col">
+                        <img src="{{ url_for('static', filename='contacts/' + name) }}" class="img-fluid person-img">
+                    </div>
+                    <div class="col-7">
+                        <h2 class="person-name d-flex align-items-center">{{name.split('.')[0]}}</h2>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+            
+        </div>
+
+    </body>
+    </html>
