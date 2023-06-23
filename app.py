@@ -68,7 +68,7 @@ def cctv_record():
     frame_height = int(camera.get(4))
     
     size = (frame_width, frame_height)
-    result = cv2.VideoWriter(filename, cv2.VideoWriter_fourcc(*'MP4V'), fps, size)
+    result = cv2.VideoWriter(filename, cv2.VideoWriter_fourcc(*'avc1'), fps, size)
 
     while True:
         # get camera frames
