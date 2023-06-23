@@ -32,7 +32,7 @@ for key, value in data_dict.items():
 #recording settings
 
 print(os.path.dirname(__file__))
-fps = 30.0
+fps = 15.0
 
 
 def cctv_capture_frame():
@@ -97,13 +97,16 @@ def video_feed():
     except:
         print("Camera initilized")
     finally:
-        camera = cv2.VideoCapture(0)
+        camera = cv2.VideoCapture(1, cv2.CAP_V4L2)
+
+
 
     global name 
     process_this_frame = 0
 
     while True:
         # get camera frames
+        name= "-"
 
         status, frame = camera.read()
         frame = cv2.flip(frame, 1)
@@ -114,7 +117,6 @@ def video_feed():
         else:
             # Only process every other frame of video to save time
             if process_this_frame == 0:
-                name= "-"
                 # Resize frame of video to 1/4 size for faster face recognition processing
                 small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
                 # Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
