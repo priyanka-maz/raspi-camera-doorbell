@@ -99,7 +99,7 @@ def video_feed():
     except:
         print("Camera initilized")
     finally:
-        camera = cv2.VideoCapture(1, cv2.CAP_V4L2)
+        camera = cv2.VideoCapture(0, cv2.CAP_V4L2)
 
 
 
