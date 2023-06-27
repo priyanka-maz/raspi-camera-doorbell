@@ -41,7 +41,7 @@ Raspi-Cam is a door camera with face detection and recognition capabilities. It 
 ## Features
 
 - Users can remotely access cctv footage from Raspi-cam
-- Unknown people are detected and they can be marked as known
+- Unknown people are detected and they can be marked as known, wherein their names may be stored
 - Face detection and recognition is used to detect 
   known people and display their names
 - Users may click on the "Say Hello" button on the homepage 
